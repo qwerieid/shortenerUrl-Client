@@ -1,0 +1,21 @@
+<div>
+  <div class="submit-form">
+    <div>
+      <div class="form-group">
+        <label for="originalUrl">Enter your original Url</label>
+        <input
+          type="text"
+          class="form-control"
+          id="originalUrl"
+          required
+          [(ngModel)]="url.originalUrl"
+          name="originalUrl"
+        />
+      </div>
+
+      <button (click)="generateShortenerUrl()" class="btn btn-success">Submit</button>
+      <button (click)="deleteAll()" class="btn btn-danger">Delete all Urls</button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="submit-form">
+  <div>
+    <div class="form-group">
+      <label>Get the original URL from a shortened URL</label>
+      <input
+        type="text"
+        class="form-control"
+        id="shortenerUrl"
+        required
+        [(ngModel)]="url.shortenedUrl"
+        name="shortenerUrl"
+      />
+    </div>
+
+    <button (click)="url.shortenedUrl && getOriginUrl(url.shortenedUrl)" class="btn btn-success">Submit</button>
+
+    <div class="url" *ngIf="result && !result.error">
+      <p><strong>Original Url :</strong> <a href="{{result?.originalUrl}}">{{result?.originalUrl}}</a></p>
+      <p><strong>Shortened Url : </strong><a href="{{result?.shortenedUrl}}">{{result?.shortenedUrl}}</a></p>
+    </div>
+  </div>
+</div>

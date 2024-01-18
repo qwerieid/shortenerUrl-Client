@@ -1,0 +1,10 @@
+.table th:first-child,
+.table td:first-child {
+  max-width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.urlTablePadding{
+  padding-top: 50px
+}

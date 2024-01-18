@@ -1,0 +1,32 @@
+<div class="list">
+  <div>
+    <generate-shortenerUrl></generate-shortenerUrl>
+  </div>
+
+  <div class="urlTablePadding">
+    <div *ngIf="urls.length > 0; else noRecords">
+    <h4>Urls List</h4>
+    <table class="table" >
+    <thead>
+      <tr>
+        <th scope="col">Original URL</th>
+        <th scope="col">Shortener URL</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let url of urls; let i = index">
+        <td>
+          <a href="{{ url?.originalUrl }}">{{ url?.originalUrl }}</a>
+        </td>
+        <td>
+          <a href="{{ url?.originalUrl }}">{{ url?.shortenedUrl }}</a>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+    <ng-template #noRecords>
+      <p>No Urls found.</p>
+    </ng-template>
+  </div>
+</div>
