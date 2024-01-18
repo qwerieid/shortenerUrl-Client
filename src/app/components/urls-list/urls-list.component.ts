@@ -8,7 +8,7 @@ import { ShortenerService } from 'src/app/services/shortener.service';
 })
 export class UrlsListComponent {
   urls: Url[]= [];
-
+  result: any;
   constructor(private shortenerService: ShortenerService) {}
 
   ngOnInit(): void {
@@ -27,6 +27,30 @@ export class UrlsListComponent {
         alert(err.error.message);
       }
     });
+  }
+
+  getOriginUrl(shortenedUrl: string|undefined, event: Event): void {
+    event.preventDefault();
+
+    const formattedUrl = shortenedUrl?.substring(shortenedUrl?.lastIndexOf('/') + 1);
+
+    this.shortenerService.get(formattedUrl).subscribe({
+      next: (data) => {
+        const originalUrl = data.originalUrl;
+        if (originalUrl) {
+          window.open(originalUrl, '_blank');
+        } else {
+          console.error('Original URL is undefined or null.');
+        }
+      },
+      error: (err) => {
+        console.error('Save error:', err);
+        alert(err.error.message);
+      }
+    });
+  }
+  openNewTab(url: string): void {
+    window.open(url, '_blank');
   }
 
 }

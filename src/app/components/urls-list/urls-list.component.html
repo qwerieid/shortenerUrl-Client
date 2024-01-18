@@ -19,7 +19,9 @@
           <a href="{{ url?.originalUrl }}">{{ url?.originalUrl }}</a>
         </td>
         <td>
-          <a href="{{ url?.originalUrl }}">{{ url?.shortenedUrl }}</a>
+          <a href="#" (click)="getOriginUrl(url?.shortenedUrl, $event)">
+            {{ url?.shortenedUrl }}
+          </a>
         </td>
       </tr>
       </tbody>
